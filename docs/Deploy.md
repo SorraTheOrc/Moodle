@@ -61,6 +61,15 @@ echo $ssh_pub_key
 sed "s|GEN-SSH-PUB-KEY|$ssh_pub_key|g" $MOODLE_AZURE_WORKSPACE/arm_template/azuredeploy.parameters.json > $MOODLE_AZURE_WORKSPACE/$MOODLE_RG_NAME/azuredeploy.parameters.json
 ```
 
+NOTE: The default paramaters deploy a cluster that is indicative of
+a production cluster. If you are evaluating and will not be throwing
+signficant load at the cluster you will likely want to scale things
+down. If you are using an Azure Trial account you will not have
+enough quota in your subscription to deploy the defaults. We've yet
+to fully document the configuration options, please see 
+[issue #47](https://github.com/Azure/Moodle/issues/47) for
+guidance (feel free to ask questions in that issue if you need help).
+
 ## Deploy cluster
 
 Now that we have a resource group and a configuration file we can
